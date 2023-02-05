@@ -2,7 +2,9 @@
   <div class="header">
     <div class="header__left">
       <div class="header__logo">
-        <img class="header__image" src="/images/logo.svg" alt="Sneakers Logo">
+        <a href="#">
+          <img class="header__image" src="/images/logo.svg" alt="Sneakers Logo">
+        </a>
       </div>
       <ul class="header__categories">
         <li v-for="categorie in categories">
