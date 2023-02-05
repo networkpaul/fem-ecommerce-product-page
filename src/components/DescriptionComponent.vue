@@ -41,6 +41,7 @@ export default {
 .description {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 30px;
   width: 40%;
 
