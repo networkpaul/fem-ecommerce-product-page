@@ -5,7 +5,7 @@
       <span class="addToCart__number">{{ items }}</span>
       <button class="addToCart__plus" @click="addItem"></button>
     </div>
-    <button class="addToCart__button" @click="addToCart">Add to cart</button>
+    <button class="addToCart__button" :class="{ 'addToCart__button--disabled': items === 0 }" @click.once="addToCart">Add to cart</button>
   </div>
 </template>
 
@@ -112,6 +112,10 @@ export default {
     width: 22px;
     height: 20px;
     mask: url("/images/icon-cart.svg");
+  }
+
+  &.addToCart__button--disabled:hover {
+    cursor: not-allowed;
   }
 }
 </style>
