@@ -8,7 +8,7 @@
       <span class="description__rebate">{{ rebate }}</span>
       <span class="description__originalPrice">{{ originalPrice }}</span>
     </div>
-    <AddToCart />
+    <AddToCart @cart-infos="getCart"/>
   </div>
 </template>
 
@@ -19,6 +19,21 @@ export default {
   name: 'DescriptionComponent',
   components: { AddToCart },
   props: [ 'company', 'title', 'text', 'currentPrice', 'originalPrice', 'rebate' ],
+  data() {
+    return {
+      cartInfo: null,
+      totalPrice: null,
+      isEmpty: true
+    }
+  },
+  methods: {
+    getCart(cartItems, totalPrice, empty) {
+      this.cartInfo = cartItems
+      this.totalPrice = totalPrice
+      this.isEmpty = empty
+      this.$emit('cartInfos', this.cartInfo, this.totalPrice, this.isEmpty)
+    }
+  }
 }
 </script>
 

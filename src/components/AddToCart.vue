@@ -13,7 +13,9 @@
 export default {
   data() {
     return {
-      items: 0
+      items: 0,
+      totalPrice: null,
+      isEmpty: true,
     }
   },
   methods: {
@@ -28,7 +30,9 @@ export default {
       }
     },
     addToCart() {
-
+      this.totalPrice = 125 * this.items
+      this.isEmpty = !this.isEmpty
+      this.$emit('cartInfos', this.items, this.totalPrice, this.isEmpty)
     }
   }
 }

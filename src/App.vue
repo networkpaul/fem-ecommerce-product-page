@@ -1,6 +1,10 @@
 <template>
   <div>
-    <HeaderComponent />
+    <HeaderComponent
+              :items="cartItems"
+              :total-price="totalPrice"
+              :empty="isEmpty"
+    />
     <main class="main-content">
     <PictureViewer />
     <DescriptionComponent
@@ -10,6 +14,7 @@
               :current-price="'$125.00'"
               :original-price="'$250.00'"
               :rebate="'50%'"
+              @cart-infos="getCart"
     />
     </main>
   </div>
@@ -21,7 +26,21 @@ import HeaderComponent from "./components/HeaderComponent.vue";
 import PictureViewer from "./components/PictureViewer.vue";
 import DescriptionComponent from "./components/DescriptionComponent.vue";
 export default {
-  components: { HeaderComponent, DescriptionComponent, PictureViewer }
+  components: { HeaderComponent, DescriptionComponent, PictureViewer },
+  data() {
+    return {
+      cartItems: null,
+      totalPrice: null,
+      isEmpty: true
+    }
+  },
+  methods: {
+    getCart(itemsNumber, totalPrice, empty) {
+      this.cartItems = itemsNumber
+      this.totalPrice = totalPrice
+      this.isEmpty = empty
+    }
+  }
 }
 </script>
 

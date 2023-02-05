@@ -25,8 +25,8 @@
         <div class="cart__description">
           <span class="cart__descriptionTitle">Fall Limited Edition Sneakers</span>
           <span class="cart__descriptionPrice">$125.00</span>
-          <span class="cart__descriptionTimes">x 3</span>
-          <span class="cart__descriptionTotal">$375.00</span>
+          <span class="cart__descriptionTimes">x {{ items }}</span>
+          <span class="cart__descriptionTotal">${{ totalPrice }}</span>
         </div>
         <button class="cart__delete"></button>
       </div>
@@ -49,7 +49,7 @@ export default {
         { categorie: 'Contact' }
       ],
       isOpen: false,
-      isEmpty: true,
+      isEmpty: true
     }
   },
   methods: {
@@ -57,6 +57,10 @@ export default {
       this.isOpen = !this.isOpen
       console.log(this.isOpen)
     }
+  },
+  props: [ 'items', 'totalPrice', 'empty' ],
+  updated() {
+    this.isEmpty = this.empty
   }
 }
 </script>
