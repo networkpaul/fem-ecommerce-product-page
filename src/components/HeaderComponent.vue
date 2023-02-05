@@ -21,6 +21,7 @@
     </div>
     <div class="cart" :class="{ 'cart--opened': isOpen, 'cart--empty': isEmpty }">
       <span class="cart__title">Cart</span>
+      <span class="cart__noItems" v-if="isEmpty">Your cart is empty</span>
       <div class="cart__top">
         <div class="cart__thumb">
           <img class="header__image" src="/images/image-product-1-thumbnail.jpg" alt="">
@@ -33,8 +34,7 @@
         </div>
         <button class="cart__delete" @click="removeCartItems"></button>
       </div>
-      <button class="cart__checkout">Checkout</button>
-      <span class="cart__noItems" v-if="isEmpty">Your cart is empty</span>
+      <button v-if="!isEmpty" class="cart__checkout">Checkout</button>
     </div>
   </div>
 </template>
@@ -206,7 +206,7 @@ export default {
     .cart__noItems {
       position: absolute;
       left: 50%;
-      top: 50%;
+      top: 70%;
       transform: translate(-50%, -50%);
       font-size: 16px;
       line-height: 26px;
