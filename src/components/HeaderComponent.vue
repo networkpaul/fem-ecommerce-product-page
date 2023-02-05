@@ -12,6 +12,7 @@
     </div>
     <div class="header__right">
       <button class="header__cart" @click="openCart"></button>
+      <span v-if="!isEmpty" class="header__cart--items">{{ items }}</span>
       <button class="header__avatar">
         <img class="header__image" src="/images/image-avatar.png" alt="">
       </button>
@@ -152,6 +153,20 @@ export default {
         border-radius: 100%;
       }
     }
+  }
+
+  .header__cart--items {
+    position: absolute;
+    top: 25px;
+    right: 125px;
+    z-index: 1;
+    padding: 3px 10px;
+    font-size: 10px;
+    line-height: 14px;
+    font-weight: 700;
+    background-color: #FF7E1B;
+    border-radius: 10px;
+    color: #FFFFFF;
   }
 }
 
