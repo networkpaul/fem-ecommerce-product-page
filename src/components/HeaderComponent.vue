@@ -29,7 +29,7 @@
           <span class="cart__descriptionTimes">x {{ items }}</span>
           <span class="cart__descriptionTotal">${{ totalPrice }}</span>
         </div>
-        <button class="cart__delete"></button>
+        <button class="cart__delete" @click="removeCartItems"></button>
       </div>
       <button class="cart__checkout">Checkout</button>
       <span class="cart__noItems" v-if="isEmpty">Your cart is empty</span>
@@ -56,7 +56,9 @@ export default {
   methods: {
     openCart() {
       this.isOpen = !this.isOpen
-      console.log(this.isOpen)
+    },
+    removeCartItems() {
+      this.isEmpty = !this.isEmpty
     }
   },
   props: [ 'items', 'totalPrice', 'empty' ],
