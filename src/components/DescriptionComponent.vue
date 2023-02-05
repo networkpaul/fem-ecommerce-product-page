@@ -15,10 +15,11 @@
 <script>
 
 import AddToCart from "./AddToCart.vue";
+
 export default {
   name: 'DescriptionComponent',
-  components: { AddToCart },
-  props: [ 'company', 'title', 'text', 'currentPrice', 'originalPrice', 'rebate' ],
+  components: {AddToCart},
+  props: ['company', 'title', 'text', 'currentPrice', 'originalPrice', 'rebate'],
   data() {
     return {
       cartInfo: null,

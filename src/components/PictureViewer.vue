@@ -7,10 +7,14 @@
       <img v-if="selected === 4" src="/images/image-product-4.jpg" alt="">
     </div>
     <div class="pictureViewer__alts">
-      <img class="pictureViewer__altsImage" :class="{ 'pictureViewer__altsImage--selected': selected === 1 }" src="/images/image-product-1-thumbnail.jpg" alt="" @click="selectOne">
-      <img class="pictureViewer__altsImage" :class="{ 'pictureViewer__altsImage--selected': selected === 2 }" src="/images/image-product-2-thumbnail.jpg" alt="" @click="selectTwo">
-      <img class="pictureViewer__altsImage" :class="{ 'pictureViewer__altsImage--selected': selected === 3 }" src="/images/image-product-3-thumbnail.jpg" alt="" @click="selectThree">
-      <img class="pictureViewer__altsImage" :class="{ 'pictureViewer__altsImage--selected': selected === 4 }" src="/images/image-product-4-thumbnail.jpg" alt="" @click="selectFour">
+      <img class="pictureViewer__altsImage" :class="{ 'pictureViewer__altsImage--selected': selected === 1 }"
+           src="/images/image-product-1-thumbnail.jpg" alt="" @click="selectOne">
+      <img class="pictureViewer__altsImage" :class="{ 'pictureViewer__altsImage--selected': selected === 2 }"
+           src="/images/image-product-2-thumbnail.jpg" alt="" @click="selectTwo">
+      <img class="pictureViewer__altsImage" :class="{ 'pictureViewer__altsImage--selected': selected === 3 }"
+           src="/images/image-product-3-thumbnail.jpg" alt="" @click="selectThree">
+      <img class="pictureViewer__altsImage" :class="{ 'pictureViewer__altsImage--selected': selected === 4 }"
+           src="/images/image-product-4-thumbnail.jpg" alt="" @click="selectFour">
     </div>
   </div>
 </template>

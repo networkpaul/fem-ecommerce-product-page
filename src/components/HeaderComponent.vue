@@ -45,11 +45,11 @@ export default {
   data() {
     return {
       categories: [
-        { categorie: 'Collections' },
-        { categorie: 'Men' },
-        { categorie: 'Women' },
-        { categorie: 'About' },
-        { categorie: 'Contact' }
+        {categorie: 'Collections'},
+        {categorie: 'Men'},
+        {categorie: 'Women'},
+        {categorie: 'About'},
+        {categorie: 'Contact'}
       ],
       isOpen: false,
       isEmpty: true
@@ -63,7 +63,7 @@ export default {
       this.isEmpty = !this.isEmpty
     }
   },
-  props: [ 'items', 'totalPrice', 'empty' ],
+  props: ['items', 'totalPrice', 'empty'],
   updated() {
     this.isEmpty = this.empty
   }
