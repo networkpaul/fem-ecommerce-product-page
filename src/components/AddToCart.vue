@@ -50,6 +50,8 @@ export default {
 .addToCart__counter {
   padding-block: 1.5rem;
   padding-inline: 1.5rem;
+  width: 35%;
+  min-width: 125px;
   display: flex;
   align-items: center;
   gap: 50px;
