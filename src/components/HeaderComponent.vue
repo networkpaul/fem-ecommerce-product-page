@@ -83,6 +83,7 @@ export default {
 <style lang="scss">
 
 .header {
+  margin-inline: auto;
   position: relative;
   padding: 1.5rem 4rem 3rem 4rem;
   display: flex;
@@ -91,6 +92,7 @@ export default {
   justify-content: space-between;
   row-gap: 2rem;
   width: 100%;
+  max-width: 1260px;
 
   &:after {
     content: '';

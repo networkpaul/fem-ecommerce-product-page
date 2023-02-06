@@ -54,9 +54,19 @@ body {
 }
 
 .main-content {
+  margin-inline: auto;
   display: flex;
   justify-content: space-around;
   padding-block: 5%;
+  width: 100%;
+  max-width: 1260px;
+  overflow-x: hidden;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
 }
 
 </style>
