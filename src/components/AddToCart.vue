@@ -108,15 +108,16 @@ export default {
 
 .addToCart__button {
   display: flex;
+  justify-content: center;
   gap: 20px;
   padding-block: 1.5rem;
-  padding-inline: 5rem;
   border-radius: 10px;
   color: #FFFFFF;
   font-size: 16px;
   line-height: 20px;
   font-weight: 700;
   background-color: #FF7E1B;
+  width: 60%;
 
   &:hover {
     background-color: #FFAB6A;
@@ -133,6 +134,12 @@ export default {
 
   &.addToCart__button--disabled:hover {
     cursor: not-allowed;
+  }
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    width: 100%;
+    box-shadow: 0 20px 50px -20px #FF7E1B;
   }
 }
 </style>

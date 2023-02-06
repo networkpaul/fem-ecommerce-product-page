@@ -1,6 +1,15 @@
 <template>
   <div class="header">
+    <div v-if="showMobile" class="header__mobile">
+      <span class="header__mobile--close" @click="showMobile = false"></span>
+      <ul class="header__categories header__categories--mobile">
+        <li v-for="categorie in categories">
+          <a class="header__categorie header__categorie--mobile" href="#">{{ categorie.categorie }}</a>
+        </li>
+      </ul>
+    </div>
     <div class="header__left">
+      <button class="header__hamburger" @click="showMobile = !showMobile"></button>
       <div class="header__logo">
         <a href="#">
           <img class="header__image" src="/images/logo.svg" alt="Sneakers Logo">
@@ -52,7 +61,8 @@ export default {
         {categorie: 'Contact'}
       ],
       isOpen: false,
-      isEmpty: true
+      isEmpty: true,
+      showMobile: false,
     }
   },
   methods: {
@@ -88,6 +98,44 @@ export default {
     width: 100%;
     height: 1px;
     background-color: #E4E9F2;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .header__mobile {
+    padding: 2rem;
+    position: absolute;
+    z-index: 1000;
+    background-color: #FFFFFF;
+    width: 45%;
+    min-width: 280px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    box-shadow: 300px 0 0 200px rgba(0,0,0,0.6);
+
+    .header__mobile--close {
+      margin-bottom: 3.5rem;
+      background-color: #69707D;
+      display: block;
+      width: 14px;
+      height: 15px;
+      mask: url("/images/icon-close.svg");
+    }
+
+    .header__categories--mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .header__categorie--mobile {
+        font-size: 18px;
+        line-height: 26px;
+        font-weight: 700;
+      }
+    }
   }
 
   .header__left {
@@ -96,9 +144,23 @@ export default {
     align-items: center;
     gap: 50px;
     width: 60%;
+    min-width: 250px;
+
+    .header__hamburger {
+      display: none;
+      background-color: #69707D;
+      width: 16px;
+      height: 15px;
+      mask: url("/images/icon-menu.svg");
+
+      @media (max-width: 768px) {
+        display: block;
+      }
+    }
 
     .header__logo {
       width: 20%;
+      min-width: 135px;
     }
 
     .header__categories {
@@ -108,6 +170,10 @@ export default {
       line-height: 26px;
       font-weight: 400;
       color: #69707D;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
 
       .header__categorie {
         position: relative;
@@ -129,6 +195,11 @@ export default {
         }
       }
     }
+
+    @media (max-width: 768px) {
+      justify-content: flex-start;
+      gap: 15px;
+    }
   }
 
   .header__right {
@@ -137,6 +208,7 @@ export default {
     align-items: center;
     gap: 30px;
     width: 20%;
+    min-width: 90px;
 
     .header__cart {
       background-color: #69707D;
@@ -172,6 +244,11 @@ export default {
     border-radius: 10px;
     color: #FFFFFF;
   }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 2rem 0 2rem;
+    flex-wrap: nowrap;
+  }
 }
 
 .header__image {
@@ -192,6 +269,15 @@ export default {
     box-shadow: 0 20px 50px -20px rgba(29, 32, 38, 0.503143);
     border-radius: 10px;
     width: 40%;
+
+    @media (max-width: 768px) {
+      top: 100px;
+      left: 0;
+      right: 0;
+      width: 95%;
+      margin-inline: 1rem;
+      z-index: 999;
+    }
   }
 
   &.cart--opened.cart--empty {

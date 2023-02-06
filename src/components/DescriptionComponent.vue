@@ -45,6 +45,7 @@ export default {
   justify-content: center;
   gap: 30px;
   width: 40%;
+  overflow-x: hidden;
 
   .description__company {
     text-transform: uppercase;
@@ -100,7 +101,22 @@ export default {
       font-weight: 700;
       color: #B6BCC8;
       width: 100%;
+      
+      @media (max-width: 768px) {
+        text-align: right;
+      }
     }
+
+    @media (max-width: 768px) {
+      margin-inline: auto;
+      flex-wrap: nowrap;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding-inline: 2rem;
+    width: 100%;
   }
 }
 </style>

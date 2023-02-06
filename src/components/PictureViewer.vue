@@ -85,12 +85,91 @@ export default {
 .pictureViewer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 40%;
   gap: 30px;
 
+  .pictureViewer__arrows--mobile {
+    display: none;
+
+    @media (max-width: 768px) {
+      position: absolute;
+      display: flex;
+      top: 50%;
+      width: 100%;
+      height: fit-content;
+      gap: 350px;
+
+      .pictureViewer__arrows--left,
+      .pictureViewer__arrows--right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .pictureViewer__arrows--left:before {
+        position: absolute;
+        z-index: 6;
+        content: '';
+        display: block;
+        width: 12px;
+        height: 18px;
+        background-color: #1D2026;
+        mask: url("/images/icon-previous.svg");
+      }
+
+      .pictureViewer__arrows--right:before {
+        position: absolute;
+        z-index: 6;
+        content: '';
+        display: block;
+        width: 12px;
+        height: 18px;
+        background-color: #1D2026;
+        mask: url("/images/icon-next.svg");
+
+        &:hover {
+          background-color: #FF7E1B;
+        }
+      }
+
+      .pictureViewer__arrows--left:after,
+      .pictureViewer__arrows--right:after {
+        position: absolute;
+        z-index: 5;
+        content: '';
+        display: block;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background-color: #FFFFFF;
+      }
+
+    }
+
+    @media (max-width: 480px) {
+      gap: 250px;
+    }
+    
+    @media (max-width: 320px) {
+      gap: 150px;
+    }
+  }
+
   .pictureViewer__main {
+    overflow-x: hidden;
     img {
       border-radius: 15px;
+
+      @media (max-width: 768px) {
+        border-radius: 0;
+      }
     }
 
     &:hover {
@@ -116,6 +195,16 @@ export default {
         outline: 3px solid #FF7E1B;
       }
     }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
   }
 }
 
