@@ -44,7 +44,14 @@ export default {
 .addToCart {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: space-between;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    margin-inline: auto;
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 
 .addToCart__counter {
