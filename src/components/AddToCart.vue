@@ -5,7 +5,7 @@
       <span class="addToCart__number">{{ items }}</span>
       <button class="addToCart__plus" @click="addItem"></button>
     </div>
-    <button class="addToCart__button" :class="{ 'addToCart__button--disabled': items === 0 }" @click.once="addToCart">
+    <button class="addToCart__button" :class="{ 'addToCart__button--disabled': items === 0 }" :disabled="items === 0" @click.once="addToCart">
       Add to cart
     </button>
   </div>
