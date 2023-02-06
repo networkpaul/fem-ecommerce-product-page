@@ -279,6 +279,11 @@ export default {
     height: 16px;
     mask: url("/images/icon-delete.svg");
     align-self: center;
+    transition: background-color ease-in-out 150ms;
+
+    &:hover {
+      background-color: #1D2026;
+    }
   }
 }
 
