@@ -35,6 +35,7 @@ export default {
       this.totalPrice = 125 * this.items
       this.isEmpty = !this.isEmpty
       this.$emit('cartInfos', this.items, this.totalPrice, this.isEmpty)
+      this.items = 0
     }
   }
 }
