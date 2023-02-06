@@ -8,17 +8,33 @@
       <span class="description__rebate">{{ rebate }}</span>
       <span class="description__originalPrice">{{ originalPrice }}</span>
     </div>
-    <AddToCart />
+    <AddToCart @cart-infos="getCart"/>
   </div>
 </template>
 
 <script>
 
 import AddToCart from "./AddToCart.vue";
+
 export default {
   name: 'DescriptionComponent',
-  components: { AddToCart },
-  props: [ 'company', 'title', 'text', 'currentPrice', 'originalPrice', 'rebate' ],
+  components: {AddToCart},
+  props: ['company', 'title', 'text', 'currentPrice', 'originalPrice', 'rebate'],
+  data() {
+    return {
+      cartInfo: null,
+      totalPrice: null,
+      isEmpty: true
+    }
+  },
+  methods: {
+    getCart(cartItems, totalPrice, empty) {
+      this.cartInfo = cartItems
+      this.totalPrice = totalPrice
+      this.isEmpty = empty
+      this.$emit('cartInfos', this.cartInfo, this.totalPrice, this.isEmpty)
+    }
+  }
 }
 </script>
 
@@ -26,8 +42,10 @@ export default {
 .description {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 30px;
   width: 40%;
+  overflow-x: hidden;
 
   .description__company {
     text-transform: uppercase;
@@ -83,7 +101,22 @@ export default {
       font-weight: 700;
       color: #B6BCC8;
       width: 100%;
+      
+      @media (max-width: 768px) {
+        text-align: right;
+      }
     }
+
+    @media (max-width: 768px) {
+      margin-inline: auto;
+      flex-wrap: nowrap;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding-inline: 2rem;
+    width: 100%;
   }
 }
 </style>
