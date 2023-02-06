@@ -60,10 +60,15 @@ export default {
   width: 35%;
   min-width: 125px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 50px;
   background-color: #F6F8FD;
   border-radius: 10px;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 
 .addToCart__minus {
